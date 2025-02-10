@@ -16,6 +16,7 @@ app.use(express.json()) //to make sure he data from front to back is in the form
 app.use(cors());
 
 app.use("/api/auth", authRoutes);
+app.use('/api/products', require('./routes/productRoutes'));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => 
