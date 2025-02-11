@@ -1,22 +1,23 @@
 
 const express = require('express');
 const connectDB = require('./config/db');// Import database connection
-const authRoutes = require('./routes/authRoutes');
-
-require('dotenv').config();
-
-const app = express();
 const cors = require('cors');
+const dotenv = require('dotenv');
+const bodyParser = require("body-parser");
 
+dotenv.config();
 // db connection
 connectDB();
 
+const app = express();
 //middlewares
-app.use(express.json()) //to make sure he data from front to back is in the form of json 
+// app.use(express.json()) //to make sure he data from front to back is in the form of json 
 app.use(cors());
+app.use(bodyParser.json());
 
-app.use("/api/auth", authRoutes);
+app.use("/api/users", require("./routes/authRoutes"));
+app.use("/api/contact", require("./routes/contactRoutes"));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => 
-console.log(`listening on port ${port}...`))
+console.log(`listening on port ${port}...`));
