@@ -7,15 +7,27 @@ const bodyParser = require("body-parser");
 
 dotenv.config();
 // db connection
-connectDB();
+connectDB('user1', 'user2');
+// connectDB('user2'); // Commented out to avoid multiple connections at startup
+
+
 
 const app = express();
+
+//handle uncaught exceptions
+process.on('uncaughtException', (err) => {
+    console.error('Caught exception:', err)
+});
+
+
 //middlewares
-// app.use(express.json()) //to make sure he data from front to back is in the form of json 
+app.use(express.json()) //to make sure he data from front to back is in the form of json 
 app.use(cors());
 app.use(bodyParser.json());
 
+// routes
 app.use("/api/users", require("./routes/authRoutes"));
+app.use("/api/about", require("./routes/aboutRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));
 
 const port = process.env.PORT || 3000;
