@@ -1,4 +1,4 @@
-const Product = require('../models/Product');
+const Product = require('../modules/products');
 
 // Fetch all products
 const getProducts = async (req, res) => {
@@ -25,4 +25,4 @@ const getProductById = async (req, res) => {
 
 
 
-module.exports = { getProducts, createProduct };
+module.exports = { getProducts, getProductById };
