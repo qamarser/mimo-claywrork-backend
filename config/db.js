@@ -5,23 +5,16 @@ require("dotenv").config();
 const connections = {};
 
 // Function to connect to the database based on user type
-const connectDB = async (userType) => {
+const connectDB = async () => {
     try {
-        let uri;
-        if (userType === 'user1') {
-            uri = process.env.MONGODB_URI; // Connection string for user 1
-        } else if (userType === 'user2') {
-            uri = process.env.MONGODB_URI_q; // Connection string for user 2
-        } else {
-            throw new Error("Invalid user type");
-        }
+            uri = process.env.MONGODB_URI; // Connection string for user 2
 
         // Check if already connected
-        if (!connections[userType] || mongoose.connection.readyState === 0) {
-            connections[userType] = await mongoose.connect(uri);
-        }
+        // if (!connections[userType] || mongoose.connection.readyState === 0) {
+            const connections = await mongoose.connect(uri);
+        // }
 
-        console.log(`Connected to db successfully for ${userType}`);
+        console.log(`Connected to db successfully for`);
     } catch (error) {
         console.log(`Error connecting to db ${error}`);
         console.log(error);
@@ -29,3 +22,11 @@ const connectDB = async (userType) => {
 }
 
 module.exports = connectDB;
+
+// try{
+//     mongoose.connect(process.env.MONGODB_URI);
+//     console.log("connected to db successfully")
+// }catch(error){
+//     console.log("error connecting to db");
+//     console.log(error);
+// }

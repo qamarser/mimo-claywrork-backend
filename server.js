@@ -7,7 +7,8 @@ const bodyParser = require("body-parser");
 
 dotenv.config();
 // db connection
-connectDB('user1', 'user2');
+// connectDB('user1', 'user2');
+connectDB();
 // connectDB('user2'); // Commented out to avoid multiple connections at startup
 
 
