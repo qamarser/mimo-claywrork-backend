@@ -2,13 +2,12 @@
 
 const express = require("express");
 const { getMessages, createMessage } = require("../controllers/contactController");
-const { protect } = require("../middleware/authMiddleware");
+// const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
-router.get("/", protect, getMessages);  // Only logged-in users can see messages
-router.post("/", createMessage);        // Anyone can submit a message
-
+router.get("/", getMessages);  
+router.post("/", createMessage);        
 module.exports = router;
 
 // GET messages requires authentication.

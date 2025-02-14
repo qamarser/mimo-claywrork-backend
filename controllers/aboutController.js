@@ -3,7 +3,8 @@ const About = require("../modules/About");
 // get about page data 
 const getAbout = async (req, res) =>{
     try{
-        const about = await About.findone();
+        const about = await About.findOne();
+
         res.status(200).json(about);
     }catch(error){
         res.status(500).json({message:"Server Error" + error});
@@ -14,12 +15,15 @@ const getAbout = async (req, res) =>{
 
 const updateAbout = async (req, res) =>{
     try{
-        const {title, description, imageUrl} = req.body;
-        const about = await About.findOneAndUpdate({}, {title, description, imageUrl}, {new: true, upsert: true});
+        const {title, description, image} = req.body;
+        const about = await About.findOneAndUpdate({}, {title, description, image}, {new: true, upsert: true});
             res.json(about);
     }catch (error){
         res.status(500).json({message: "Server Error" + error});
     }
+};
+
+module.exports = {getAbout, updateAbout};
     //     if (about){
     //         about.title = title;
     //         about.description = description;
@@ -32,6 +36,4 @@ const updateAbout = async (req, res) =>{
 // } catch (error){
 //     res.status(500).json({message: "Server Error" + error});
 // }
-};
 
-module.exports = {getAbout, updateAbout};

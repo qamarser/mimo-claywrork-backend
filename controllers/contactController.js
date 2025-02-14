@@ -6,7 +6,7 @@ const getMessages = async (req, res) => {
         const message = await Contact.find();
         res.status(200).json(message);
     } catch (error) {
-        res.status(500).json({message: "server Error" + error.message});
+        res.status(500).json({message: "server Error " + error.message});
     }
 };
 

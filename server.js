@@ -27,10 +27,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // routes
-app.use("/api/users", require("./routes/authRoutes"));
+app.use("/api/user", require("./routes/authRoutes"));
 app.use("/api/about", require("./routes/aboutRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => 
 console.log(`listening on port ${port}...`));
