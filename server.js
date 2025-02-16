@@ -22,11 +22,19 @@ process.on('uncaughtException', (err) => {
 // Import Routes
 const productRoutes = require('./routes/productRoutes');
 const categoryRoutes = require('./routes/categories');
+
+
 //middlewares
 app.use(express.json()) //to make sure he data from front to back is in the form of json 
 app.use(cors());
 
-app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/categories", categoryRoutes);
+app.use("/api/hero-section", require("./routes/herosectionRoutes"));
+app.use("/api/about", require("./routes/aboutRoutes"));
+app.use("/api/contact", require("./routes/contactRoutes"));
+app.use("/api/request", require("./routes/requestsRouter"));
+app.use("/api/user", require("./routes/authRoutes"));
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => 
