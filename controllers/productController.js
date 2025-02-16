@@ -2,12 +2,12 @@ const Product = require('../modules/product');
 
 // Get all products by category
 exports.getProductsByCategory = async (req, res) => {
-    try {
-        const products = await Product.find({ categoryId: req.params.categoryId });
-        res.json(products);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+  try {
+    const products = await Product.find({ category: req.params.idcategory }); // Using 'category'
+    res.json(products);  // Send the products belonging to the category
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
 
 // Get single product details
