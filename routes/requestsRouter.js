@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const Request = require("../models/Request");
+const Request = require("../modules/requests");
+
 
 // POST route to handle form submissions
 router.post("/", async (req, res) => {
@@ -12,7 +13,8 @@ router.post("/", async (req, res) => {
 
     try {
         // Save request to MongoDB in the "requests" collection
-        const newRequest = new ContactRequest({ name, phone, email, message });
+        const newRequest = new Request({ name, phone, email, message });
+
         await newRequest.save();
 
         res.status(200).json({ message: "Message stored successfully!" });

@@ -30,6 +30,7 @@ app.use("/api/user", require("./routes/authRoutes"));
 app.use("/api/about", require("./routes/aboutRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));
 app.use("/api/hero-section", require("./routes/herosectionRoutes"));
+app.use("/api/requests", require("./routes/requestsRouter"));
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => 
