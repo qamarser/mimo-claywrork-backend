@@ -27,11 +27,10 @@ const categoryRoutes = require('./routes/categories');
 //middlewares
 app.use(express.json()) //to make sure he data from front to back is in the form of json 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost:3000',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
-
 
 
 app.use("/api/products", productRoutes);
