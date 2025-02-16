@@ -8,7 +8,7 @@ const getImage = async(req, res) => {
     }catch (err) {
         res.status(500).json({ message: err.message });
     }
-    };
+};
 
     // update image
     const updateImage = async (req, res) => {
