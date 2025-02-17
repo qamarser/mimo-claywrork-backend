@@ -43,5 +43,7 @@ app.use("/api/request", require("./routes/requestsRouter"));
 app.use("/api/user", require("./routes/authRoutes"));
 
 const port = process.env.PORT || 4000;
-app.listen(port, () => 
-console.log(`listening on port ${port}...`))
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server is running on port ${port}`);
+  console.log(`MongoDB connected successfully`);
+});
