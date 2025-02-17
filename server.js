@@ -41,6 +41,6 @@ app.use("/api/contact", require("./routes/contactRoutes"));
 app.use("/api/request", require("./routes/requestsRouter"));
 app.use("/api/user", require("./routes/authRoutes"));
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 app.listen(port, () => 
 console.log(`listening on port ${port}...`))
