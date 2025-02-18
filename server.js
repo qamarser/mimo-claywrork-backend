@@ -30,7 +30,7 @@ app.use(express.json()) //to make sure he data from front to back is in the form
 app.use(cors({
   origin: 'https://mimo-claywrork-frontend.vercel.app/',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  credentials: true
 }));
 
 
