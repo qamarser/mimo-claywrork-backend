@@ -28,7 +28,7 @@ const categoryRoutes = require('./routes/categories');
 //middlewares
 app.use(express.json()) //to make sure he data from front to back is in the form of json 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://mimo-claywrork-frontend.vercel.app/',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -43,7 +43,5 @@ app.use("/api/request", require("./routes/requestsRouter"));
 app.use("/api/user", require("./routes/authRoutes"));
 
 const port = process.env.PORT || 4000;
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server is running on port ${port}`);
-  console.log(`MongoDB connected successfully`);
-});
+app.listen(port, () => 
+  console.log(`listening on port ${port}...`))
